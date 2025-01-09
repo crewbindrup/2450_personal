@@ -5,16 +5,23 @@ def main():
     print("Hello. I am going to guess your age.")
     name = input("What's your name? ")
     total_guesses = 0
+    lowest_guess = 15
+    highest_guess = 30
     while total_guesses < 5:
         total_guesses += 1
-        age = randint(15, 30)
-        print("Are you ", age, " years old?")
+        age = randint(lowest_guess, highest_guess)
+        print("Are you", age, "years old?")
         correct = input("Y for yes, and N for no: ")
         if (correct == "Y"):
             print(name, "is", age, "years old.")
             return
         else:
             print("Rats.")
+            delta = input("Are you older or younger? (Older/Younger): ")
+            if (delta == "Older"):
+                lowest_guess = age + 1
+            else:
+                highest_guess = age - 1
     print("I failed after 5 attempts.")
 
 
