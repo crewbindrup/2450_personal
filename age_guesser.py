@@ -4,7 +4,9 @@ from random import randint
 def main():
     print("Hello. I am going to guess your age.")
     name = input("What's your name? ")
-    while True:
+    total_guesses = 0
+    while total_guesses < 5:
+        total_guesses += 1
         age = randint(15, 30)
         print("Are you ", age, " years old?")
         correct = input("Y for yes, and N for no: ")
@@ -13,6 +15,7 @@ def main():
             return
         else:
             print("Rats.")
+    print("I failed after 5 attempts.")
 
 
 main()
